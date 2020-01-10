@@ -16,7 +16,13 @@
           <%= inline_svg_tag("logo.svg", title: translate(".brand")) %>
         <% end %>
 
-        <details id="order" class="navigation__cart cart">
+        <details
+          id="order"
+          class="navigation__cart cart"
+          data-controller="permanent"
+          data-action="turbolinks:before-render@document->permanent#cloneChildren"
+          data-turbolinks-permanent
+        >
           <summary>
             <%= inline_svg_tag("cart.svg", class: "icon", title: translate(".cart")) %>
           </summary>
@@ -29,9 +35,20 @@
     </header>
 
     <main>
-      <div class="flashes">
+      <div
+        id="flashes"
+        class="flashes"
+        data-controller="permanent"
+        data-action="turbolinks:before-render@document->permanent#cloneChildren"
+        data-permanent-append-value="true"
+        data-turbolinks-permanent
+      >
         <% flash.each do |key, value| %>
-          <div class="flash flash--<%= key %>">
+          <div
+            class="flash flash--<%= key %>"
+            data-controller="temporary"
+            data-temporary-delay-value="5000"
+          >
             <%= value %>
           </div>
         <% end %>
