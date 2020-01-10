@@ -38,3 +38,20 @@ en:
     application:
       brand: "thoughtbooks"
       cart: "Your Current Order"
+
+  line_items:
+    create:
+      success: "We've added %{title} to your order."
+
+  brand: "thoughtbooks"
+
+  helpers:
+    submit:
+      line_item:
+        create: "Add to Cart"
+
+  orders:
+    order:
+      table:
+        caption: "Your current order"
+        total: "Total: %{total}"

@@ -2,8 +2,17 @@ require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TranslationHelper
 
   driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+
+  def expand_cart
+    find("details", text: translate("layouts.application.cart")).click
+  end
+
+  def within_cart
+    within("#order") { yield }
+  end
 
   def assert_rich_text(rich_text)
     within ".trix-content" do

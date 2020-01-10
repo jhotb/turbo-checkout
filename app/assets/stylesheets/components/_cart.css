@@ -1,0 +1,19 @@
+.cart {
+  position: relative;
+}
+
+.cart > summary {
+  list-style: none;
+}
+
+.cart > summary::-webkit-details-marker {
+  display: none;
+}
+
+.cart__content {
+  background-color: var(--header-background-color);
+  margin-top: var(--header-height);
+  position: absolute;
+  right: 0;
+  top: 0;
+}

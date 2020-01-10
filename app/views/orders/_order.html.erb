@@ -1,0 +1,26 @@
+<table>
+  <caption><%= translate(".table.caption") %></caption>
+  <thead>
+    <tr>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= LineItem.human_attribute_name(:quantity) %></th>
+      <th><%= Book.human_attribute_name(:price) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% order.line_items.includes(:book).each do |line_item| %>
+      <tr>
+        <td><%= line_item.title %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= number_to_currency(line_item.price) %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= translate(".table.total", total: number_to_currency(order.total)) %></td>
+    </tr>
+  </tbody>
+</table>

@@ -18,8 +18,10 @@
   <div class="book__actions">
     <p><%= number_to_currency(book.price) %></p>
 
-    <button class="button button--primary">
-      Add to Cart
-    </button>
+    <%= form_with(model: book.line_items.build) do |form| %>
+      <%= form.hidden_field :book_id %>
+
+      <%= form.button class: "button button--primary" %>
+    <% end %>
   </div>
 </section>
