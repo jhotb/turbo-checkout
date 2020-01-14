@@ -18,7 +18,7 @@
   <div class="book__actions">
     <p><%= number_to_currency(book.price) %></p>
 
-    <%= form_with(model: book.line_items.build) do |form| %>
+    <%= form_with(model: book.line_items.build, html: { "data-scroll-permanent": true }) do |form| %>
       <%= form.hidden_field :book_id %>
 
       <%= form.button class: "button button--primary" %>

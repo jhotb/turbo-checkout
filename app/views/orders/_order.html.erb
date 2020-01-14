@@ -16,7 +16,7 @@
         <td><%= line_item.quantity %></td>
         <td><%= number_to_currency(line_item.price) %></td>
         <td>
-          <%= form_with(model: line_item, method: :delete) do |form| %>
+          <%= form_with(model: line_item, method: :delete, html: { "data-scroll-permanent": true }) do |form| %>
             <%= form.submit(class: "button button--destructive") %>
           <% end %>
         </td>
