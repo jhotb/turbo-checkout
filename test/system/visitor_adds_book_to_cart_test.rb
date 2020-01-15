@@ -12,7 +12,7 @@ class VisitorAddsBookToCartTest < ApplicationSystemTestCase
     assert_text added_book_flash(book)
     within_cart do
       assert_text book.title
-      assert_text number_to_currency(book.price)
+      assert_total book.price
     end
   end
 

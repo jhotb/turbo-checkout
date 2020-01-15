@@ -42,6 +42,8 @@ en:
   line_items:
     create:
       success: "We've added %{title} to your order."
+    destroy:
+      success: "We've removed %{title} from your order."
 
   brand: "thoughtbooks"
 
@@ -49,6 +51,7 @@ en:
     submit:
       line_item:
         create: "Add to Cart"
+        update: "Remove from Cart"
 
   orders:
     order:

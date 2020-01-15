@@ -5,6 +5,7 @@
       <th><%= Book.human_attribute_name(:title) %></th>
       <th><%= LineItem.human_attribute_name(:quantity) %></th>
       <th><%= Book.human_attribute_name(:price) %></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -14,6 +15,11 @@
         <td><%= line_item.title %></td>
         <td><%= line_item.quantity %></td>
         <td><%= number_to_currency(line_item.price) %></td>
+        <td>
+          <%= form_with(model: line_item, method: :delete) do |form| %>
+            <%= form.submit(class: "button button--destructive") %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
 
@@ -21,6 +27,7 @@
       <td></td>
       <td></td>
       <td><%= translate(".table.total", total: number_to_currency(order.total)) %></td>
+      <td></td>
     </tr>
   </tbody>
 </table>

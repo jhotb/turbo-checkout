@@ -6,3 +6,8 @@
   background-color: var(--primary-background-color);
   color: #fff
 }
+
+.button--destructive {
+  background-color: var(--destructive-background-color);
+  color: #fff
+}

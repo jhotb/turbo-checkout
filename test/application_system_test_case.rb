@@ -19,4 +19,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
       assert_text(rich_text.to_plain_text.squish, normalize_ws: true)
     end
   end
+
+  def assert_total(*prices)
+    number_to_currency(prices.sum)
+  end
 end
