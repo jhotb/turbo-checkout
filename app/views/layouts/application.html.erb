@@ -24,8 +24,11 @@
 
     <main>
       <div class="flashes">
-        <div class="flash flash--success">We've added Ruby Science to your order.</div>
-        <div class="flash flash--error">There was an issue with your order.</div>
+        <% flash.each do |key, value| %>
+          <div class="flash flash--<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
       </div>
 
       <%= yield %>

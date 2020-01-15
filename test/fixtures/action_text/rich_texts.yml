@@ -1,0 +1,46 @@
+ruby_science_description:
+  record: ruby_science (Book)
+  name: description
+  body: >
+    <h2>
+      The reference for writing fantastic Rails applications
+    </h2>
+
+    <p>
+      You build web applications, and you love Ruby on Rails because it provides a framework for developing applications that are are fast, fun, and easy to change. Over time these applications can become bloated, development slows down, and changes to the codebase become painful.
+    </p>
+
+    <p>
+      This book was written to help you learn to detect emerging problems in your codebase; we’ll deliver the solutions for fixing them, and maintaining an application that will be fun to work on for years to come.
+    </p>
+
+maybe_haskell_description:
+  record: maybe_haskell (Book)
+  name: description
+  body: >
+    <h2>
+      Programming Without Null
+    </h2>
+    <p>
+      What would it be like to program in a language without the frustrating concept of null? In our new book, Maybe Haskell, we explore exactly this. Haskell takes the idea that some values may not be present and makes it a first-class concept in the type system. In this book, you'll learn just enough Haskell to really see how this idea works in practice.
+    </p>
+
+ios_on_rails_description:
+  record: ios_on_rails (Book)
+  name: description
+  body: >
+    <h2>
+      The reference for writing superb iOS apps with Ruby on Rails backends.
+    </h2>
+
+    <p>
+      This book is really two books in one.
+    </p>
+
+    <p>
+      The the first book covers building a backend API in Rails. We will demonstrate how to create a robust, clean, flexible JSON API. Along the way, we’ll discuss different approaches that we didn’t choose and discuss their drawbacks.
+    </p>
+
+    <p>
+      The second book walks you through creating an iOS application in Objective-C that uses the Rails API you just created. You’ll learn how the intelligent API choices made in the first section make iOS development far easier.
+    </p>

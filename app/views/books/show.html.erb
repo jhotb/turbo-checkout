@@ -1,22 +1,22 @@
-<h1 class="page-title">Ruby Science</h1>
+<h1 class="page-title"><%= book.title %></h1>
 
 <section class="book">
-  <img class="book__cover" src="http://via.placeholder.com/500/500" alt="">
+  <%= image_tag(
+    book.cover.attached? ?
+      book.cover.variant(resize_and_pad: [500, 500]) :
+      "http://via.placeholder.com/500/500",
+    class: "book__cover",
+    height: 500,
+    width: 500,
+    alt: "",
+  ) %>
 
   <article class="book__content">
-    <h2>The reference for writing fantastic Rails applications</h2>
-
-    <p>
-      You build web applications, and you love Ruby on Rails because it provides a framework for developing applications that are are fast, fun, and easy to change. Over time these applications can become bloated, development slows down, and changes to the codebase become painful.
-    </p>
-
-    <p>
-      This book was written to help you learn to detect emerging problems in your codebase; we’ll deliver the solutions for fixing them, and maintaining an application that will be fun to work on for years to come.
-    </p>
+    <%= book.description %>
   </article>
 
   <div class="book__actions">
-    <p>$15.00</p>
+    <p><%= number_to_currency(book.price) %></p>
 
     <button class="button button--primary">
       Add to Cart
