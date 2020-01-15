@@ -1,0 +1,6 @@
+.flashes {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+}

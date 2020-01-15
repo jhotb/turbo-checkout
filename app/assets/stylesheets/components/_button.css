@@ -1,0 +1,8 @@
+.button {
+  padding: var(--base-spacing);
+}
+
+.button--primary {
+  background-color: var(--primary-background-color);
+  color: #fff
+}

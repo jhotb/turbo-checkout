@@ -1,0 +1,10 @@
+.collection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.collection__item {
+  width: var(--collection-item-width);
+}

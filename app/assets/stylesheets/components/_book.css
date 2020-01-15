@@ -1,0 +1,33 @@
+.book {
+  display: grid;
+  grid-template-areas:  "cover"
+                        "content"
+                        "actions";
+}
+
+.book * {
+  margin: var(--small-spacing);
+}
+
+.book__actions {
+  grid-area: actions;
+}
+
+.book__cover {
+  grid-area: cover;
+}
+
+.book__content {
+  grid-area: content;
+}
+
+@media screen and (min-width: 550px) {
+  .book {
+    grid-template-areas:  "cover content"
+                          "cover actions";
+  }
+
+  .book * {
+    margin: var(--base-spacing);
+  }
+}

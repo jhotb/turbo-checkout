@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TurboCheckout</title>
+    <title><%= translate(".brand") %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="header">
+      <nav class="navigation">
+        <%= link_to books_path, class: "navigation__logo" do %>
+          <%= inline_svg_tag("logo.svg", title: translate(".brand")) %>
+        <% end %>
+
+        <div class="navigation__cart cart">
+          <%= inline_svg_tag("cart.svg", class: "icon", title: translate(".cart")) %>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="flashes">
+        <div class="flash flash--success">We've added Ruby Science to your order.</div>
+        <div class="flash flash--error">There was an issue with your order.</div>
+      </div>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

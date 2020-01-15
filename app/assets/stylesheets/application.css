@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+}
+
+main {
+  min-height: calc(100vh - var(--header-height));
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}

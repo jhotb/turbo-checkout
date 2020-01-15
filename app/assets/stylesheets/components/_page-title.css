@@ -1,0 +1,9 @@
+.page-title {
+  margin: var(--small-spacing);
+}
+
+@media screen and (min-width: 550px) {
+  .page-title {
+    margin: var(--base-spacing);
+  }
+}

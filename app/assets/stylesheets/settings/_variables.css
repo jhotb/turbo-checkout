@@ -1,0 +1,15 @@
+:root {
+  --base-z-index: 0;
+
+  --base-spacing: 1rem;
+  --small-spacing: calc(var(--base-spacing) * 0.5);
+
+  --header-height: 48px;
+  --header-background-color: #333;
+  --header-color: #fff;
+
+  --collection-item-width: 300px;
+
+  --primary-background-color: #28a745;
+  --destructive-background-color: #e03131;
+}

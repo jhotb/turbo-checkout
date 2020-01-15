@@ -1,0 +1,5 @@
+.header {
+  background-color: var(--header-background-color);
+  color: var(--header-color);
+  height: var(--header-height);
+}

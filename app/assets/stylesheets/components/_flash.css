@@ -1,0 +1,20 @@
+.flash {
+  padding: var(--small-spacing);
+  margin: var(--small-spacing);
+  color: #fff;
+  background-color: var(--header-background-color);
+}
+
+.flash--error {
+  background-color: var(--destructive-background-color);
+}
+
+.flash--success {
+  background-color: var(--primary-background-color);
+}
+
+@media screen and (min-width: 550px) {
+  .flash {
+    padding: var(--base-spacing);
+  }
+}
