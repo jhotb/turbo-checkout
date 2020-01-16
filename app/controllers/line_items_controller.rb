@@ -12,6 +12,14 @@ class LineItemsController < ApplicationController
     )
   end
 
+  def update
+    line_item = Current.order.line_items.find(params[:id])
+
+    line_item.update!(params.require(:line_item).permit(:quantity))
+
+    redirect_back fallback_location: root_url
+  end
+
   def destroy
     line_item = Current.order.line_items.find(params[:id])
 

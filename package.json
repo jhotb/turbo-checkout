@@ -7,6 +7,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "form-request-submit-polyfill": "^2.0.0",
     "stimulus": "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"

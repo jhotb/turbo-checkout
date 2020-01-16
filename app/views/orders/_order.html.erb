@@ -14,13 +14,24 @@
       <tr>
         <td><%= line_item.title %></td>
         <td>
-          <button>-</button>
+          <%= form_with(model: line_item, html: {
+              "data-scroll-permanent": true,
+              "data-controller": "form",
+              "data-action": "change->form#requestSubmit",
+            },
+          ) do |form| %>
+          <fieldset data-controller="number-field">
+              <button type="button" data-action="click->number-field#stepDown">-</button>
 
-          <%= translate(".table.line_item.quantity", count: line_item.quantity) %>
+              <%= form.label :quantity, translate(".table.line_item.quantity", count: line_item.quantity) %>
+              <%= form.number_field :quantity, min: 1, "data-number-field-target": "input" %>
 
-          <%= form_with(model: line_item.dup.tap { line_item.quantity += 1 }, html: { "data-scroll-permanent": true }) do |form| %>
-            <%= form.hidden_field :quantity %>
-            <%= form.submit("+", class: "button") %>
+              <button type="button" data-action="click->number-field#stepUp">+</button>
+            </fieldset>
+
+            <noscript>
+              <%= form.submit(class: "button") %>
+            </noscript>
           <% end %>
         </td>
         <td><%= number_to_currency(line_item.price) %></td>
