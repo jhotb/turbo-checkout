@@ -14,6 +14,16 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     within("#order") { yield }
   end
 
+  def within_line_item(book)
+    within_cart do
+      within("tr", text: book.title) { yield }
+    end
+  end
+
+  def copy_count(count)
+    translate("orders.order.table.line_item.quantity", count: count)
+  end
+
   def assert_rich_text(rich_text)
     within ".trix-content" do
       assert_text(rich_text.to_plain_text.squish, normalize_ws: true)

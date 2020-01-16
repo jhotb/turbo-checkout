@@ -20,12 +20,6 @@ class VisitorRemovesBooksFromCartTestTest < ApplicationSystemTestCase
     end
   end
 
-  def within_line_item(book)
-    within_cart do
-      within("tr", text: book.title) { yield }
-    end
-  end
-
   def removed_book_flash(book)
     translate("line_items.destroy.success", title: book.title)
   end

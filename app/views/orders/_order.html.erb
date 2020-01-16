@@ -13,7 +13,16 @@
     <% order.line_items.includes(:book).each do |line_item| %>
       <tr>
         <td><%= line_item.title %></td>
-        <td><%= translate(".table.line_item.quantity", count: line_item.quantity) %></td>
+        <td>
+          <button>-</button>
+
+          <%= translate(".table.line_item.quantity", count: line_item.quantity) %>
+
+          <%= form_with(model: line_item.dup.tap { line_item.quantity += 1 }, html: { "data-scroll-permanent": true }) do |form| %>
+            <%= form.hidden_field :quantity %>
+            <%= form.submit("+", class: "button") %>
+          <% end %>
+        </td>
         <td><%= number_to_currency(line_item.price) %></td>
         <td>
           <%= form_with(model: line_item, method: :delete, html: { "data-scroll-permanent": true }) do |form| %>

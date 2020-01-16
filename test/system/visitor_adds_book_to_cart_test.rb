@@ -31,10 +31,6 @@ class VisitorAddsBookToCartTest < ApplicationSystemTestCase
     end
   end
 
-  def copy_count(count)
-    translate("orders.order.table.line_item.quantity", count: count)
-  end
-
   def added_book_flash(book)
     translate("line_items.create.success", title: book.title)
   end
