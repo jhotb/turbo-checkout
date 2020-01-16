@@ -5,6 +5,6 @@ class Order < ApplicationRecord
   has_many :books, through: :line_items
 
   def total
-    line_items.total / 100
+    line_items.total_in_cents / 100
   end
 end

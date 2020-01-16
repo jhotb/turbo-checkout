@@ -57,4 +57,8 @@ en:
     order:
       table:
         caption: "Your current order"
+        line_item:
+          quantity:
+            one: "%{count} copy"
+            other: "%{count} copies"
         total: "Total: %{total}"

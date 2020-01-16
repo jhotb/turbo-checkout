@@ -1,8 +1,8 @@
 class LineItemsController < ApplicationController
   def create
-    line_item = Current.order.line_items.build(line_item_params)
+    line_item = Current.order.line_items.find_or_initialize_by(line_item_params)
 
-    line_item.save!
+    line_item.increment!
 
     cookies[:order_token] = Current.order.token
 
