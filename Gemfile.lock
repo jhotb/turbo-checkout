@@ -1,3 +1,20 @@
+PATH
+  remote: ../Breezy/breezy_rails
+  specs:
+    breezy (0.13.0)
+      actionpack (>= 6.0.0)
+      props_template (= 0.13.0)
+      webpacker (>= 3.0)
+
+PATH
+  remote: ../Breezy/props_template
+  specs:
+    props_template (0.13.0)
+      actionview (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      concurrent-ruby (>= 1.1)
+      oj (>= 3.9)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -123,6 +140,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.7-x86-mingw32)
       mini_portile2 (~> 2.4.0)
+    oj (3.10.6)
     pg (1.2.2)
     pg (1.2.2-x64-mingw32)
     pg (1.2.2-x86-mingw32)
@@ -243,6 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  breezy!
   byebug
   capybara (>= 2.15)
   image_processing (~> 1.2)
@@ -250,6 +269,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
+  props_template!
   puma (~> 4.1)
   rack-back_door
   rails (~> 6.0.2, >= 6.0.2.1)

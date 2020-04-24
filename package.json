@@ -2,6 +2,7 @@
   "name": "turbo_checkout",
   "private": true,
   "dependencies": {
+    "@jho406/breezy": "file:../Breezy/breezy",
     "@babel/preset-react": "^7.9.4",
     "@rails/actioncable": "^6.0.0",
     "@rails/actiontext": "^6.0.2-1",
