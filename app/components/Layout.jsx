@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import OrderTable from 'components/OrderTable'
+import BaseScreen from 'components/BaseScreen'
 
 const Alert = ({flash}) => {
    let [visibility, setVisibility] = useState(true);
@@ -18,7 +19,11 @@ const Alert = ({flash}) => {
   )
 }
 
-export default class extends React.Component {
+export default class extends BaseScreen {
+  removeFromCart = (id) => {
+    this.remote(`/line_items/${id}?bzq=data.header.cart`, {method: 'DELETE'})
+  }
+
   render() {
     const {
       header: {
@@ -44,12 +49,11 @@ export default class extends React.Component {
               />
 
               <div className="cart__content">
-                <OrderTable {...cart} />
+                <OrderTable {...cart} removeFromCart={this.removeFromCart} />
               </div>
             </details>
           </nav>
         </header>
-
         <main>
           <div className="flashes">
             { flashes.map((flash) => (

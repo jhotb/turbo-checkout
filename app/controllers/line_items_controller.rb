@@ -17,7 +17,7 @@ class LineItemsController < ApplicationController
 
     line_item.destroy!
 
-    redirect_back(
+    redirect_back_with_bzq(
       fallback_location: root_url,
       flash: { success: translate(".success", title: line_item.title) },
     )

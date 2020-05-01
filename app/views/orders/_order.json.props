@@ -9,14 +9,6 @@ json.line_items do
     json.title line_item.title
     json.quantity line_item.quantity
     json.price number_to_currency(line_item.price)
-
-    form = capture {
-        form_with(model: line_item, method: :delete) do |form|
-          capture { form.submit(class: "button button--destructive") }
-        end
-      }
-
-    json.form form
   end
 end
 

@@ -8,7 +8,8 @@ export default class extends React.Component {
       quantity,
       price,
       lineItems,
-      footer
+      footer,
+      removeFromCart
     } = this.props
 
     return (
@@ -29,7 +30,11 @@ export default class extends React.Component {
               <td> { title } </td>
               <td> { quantity } </td>
               <td> { price } </td>
-              <td dangerouslySetInnerHTML={ {__html: form} } />
+              <td>
+                <button onClick={ () => removeFromCart(id)} className="button button--destructive">
+                  Remove from Cart
+                </button>
+              </td>
             </tr>
           ))}
           <tr>
