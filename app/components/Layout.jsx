@@ -1,6 +1,23 @@
 import React, {useState, useEffect} from 'react'
 import OrderTable from 'components/OrderTable'
 
+const Alert = ({flash}) => {
+   let [visibility, setVisibility] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisibility(false)
+    }, 5000);
+    return () => clearTimeout(timer);
+   }, [])
+
+  return(
+    visibility && <div className={`flash flash--${flash.key}`}>
+      {flash.value}
+    </div>
+  )
+}
+
 export default class extends React.Component {
   render() {
     const {
@@ -36,9 +53,7 @@ export default class extends React.Component {
         <main>
           <div className="flashes">
             { flashes.map((flash) => (
-              <div className={`flash flash--${flash.key}`}>
-                {flash.value}
-              </div>
+              <Alert flash={flash} key={flash.id}/>
             )) }
           </div>
           {this.props.children}

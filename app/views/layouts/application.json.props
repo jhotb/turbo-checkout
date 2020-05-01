@@ -32,7 +32,7 @@ if path
 end
 
 flashes = flash.to_a.map do |key, value|
-  {key: key, value: value}
+  {key: key, value: value, id: Time.now}
 end
 
 json.flashes flashes

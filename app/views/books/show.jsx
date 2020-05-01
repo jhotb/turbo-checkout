@@ -6,6 +6,14 @@ import Layout from 'components/Layout'
 import * as applicationActionCreators from 'javascript/packs/action_creators'
 
 class BooksShow extends BaseScreen {
+  addToCart = () => {
+    const body = JSON.stringify({
+      book_id: this.props.bookId
+    })
+
+    this.remote('/line_items?bzq=data.header.cart', {method: 'POST', body})
+  }
+
   render () {
     const {
       title,
@@ -26,7 +34,9 @@ class BooksShow extends BaseScreen {
           />
           <div className="book__actions">
             <p>{ price }</p>
-            <div dangerouslySetInnerHTML={{__html: form}}/>
+            <button onClick={this.addToCart} className="button button--primary">
+              Add to Cart
+            </button>
           </div>
         </section>
       </Layout>

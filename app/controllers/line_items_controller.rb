@@ -6,7 +6,7 @@ class LineItemsController < ApplicationController
 
     cookies[:order_token] = Current.order.token
 
-    redirect_back(
+    redirect_back_with_bzq(
       fallback_location: root_url,
       flash: { success: translate(".success", title: line_item.title) },
     )
