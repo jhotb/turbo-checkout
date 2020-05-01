@@ -1,0 +1,23 @@
+json.caption translate(".table.caption")
+json.title Book.human_attribute_name(:title)
+json.quantity LineItem.human_attribute_name(:quantity)
+json.price  Book.human_attribute_name(:price)
+
+json.line_items do
+  json.array! order.line_items.includes(:book) do |line_item|
+    json.id line_item.id
+    json.title line_item.title
+    json.quantity line_item.quantity
+    json.price number_to_currency(line_item.price)
+
+    form = capture {
+        form_with(model: line_item, method: :delete) do |form|
+          capture { form.submit(class: "button button--destructive") }
+        end
+      }
+
+    json.form form
+  end
+end
+
+json.footer translate(".table.total", total: number_to_currency(order.total))

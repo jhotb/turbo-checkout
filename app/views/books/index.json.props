@@ -1,0 +1,14 @@
+json.title translate(".title")
+
+json.books do
+  json.array! books do |book|
+    json.id book.id
+    json.path book_path(book)
+    json.image image_tag(
+      book.cover.attached? ?
+        book.cover.variant(resize_and_pad: [300, 300]) :
+        "http://via.placeholder.com/300/300",
+    )
+    json.title book.title
+  end
+end

@@ -1,27 +1,4 @@
-<h1 class="page-title"><%= book.title %></h1>
+<%-
+  @initial_state = controller.render_to_string(formats: [:json], locals: local_assigns, layout: true)
+%>
 
-<section class="book">
-  <%= image_tag(
-    book.cover.attached? ?
-      book.cover.variant(resize_and_pad: [500, 500]) :
-      "http://via.placeholder.com/500/500",
-    class: "book__cover",
-    height: 500,
-    width: 500,
-    alt: "",
-  ) %>
-
-  <article class="book__content">
-    <%= book.description %>
-  </article>
-
-  <div class="book__actions">
-    <p><%= number_to_currency(book.price) %></p>
-
-    <%= form_with(model: book.line_items.build) do |form| %>
-      <%= form.hidden_field :book_id %>
-
-      <%= form.button class: "button button--primary" %>
-    <% end %>
-  </div>
-</section>

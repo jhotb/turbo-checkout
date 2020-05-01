@@ -15,34 +15,5 @@
 
   <body>
     <div id='app'></div>
-    <header class="header">
-      <nav class="navigation">
-        <%= link_to books_path, class: "navigation__logo" do %>
-          <%= inline_svg_tag("logo.svg", title: translate(".brand")) %>
-        <% end %>
-
-        <details id="order" class="navigation__cart cart">
-          <summary>
-            <%= inline_svg_tag("cart.svg", class: "icon", title: translate(".cart")) %>
-          </summary>
-
-          <div class="cart__content">
-            <%= render(partial: Current.order) %>
-          </div>
-        </details>
-      </nav>
-    </header>
-
-    <main>
-      <div class="flashes">
-        <% flash.each do |key, value| %>
-          <div class="flash flash--<%= key %>">
-            <%= value %>
-          </div>
-        <% end %>
-      </div>
-
-      <%= yield %>
-    </main>
   </body>
 </html>

@@ -1,9 +1,19 @@
 path = param_to_search_path(params[:bzq])
 
 json.data(search: path) do
+  json.header do
+    json.books_path books_path
+    json.logo_svg_tag inline_svg_tag("logo.svg", title: translate(".brand"))
+    json.cart_svg_tag inline_svg_tag("cart.svg", class: "icon", title: translate(".cart"))
+
+    json.cart(partial: ['orders/order', locals: {order: Current.order}] ) do
+    end
+  end
+
   yield json
 end
 
+# Below is auto genreated when you installed Breezy
 json.component_identifier "#{params[:controller]}/#{params[:action]}"
 json.defers json.deferred!
 json.fragments json.fragments!
@@ -20,4 +30,10 @@ if path
   json.action 'graft'
   json.path search_path_to_camelized_param(path)
 end
+
+flashes = flash.to_a.map do |key, value|
+  {key: key, value: value}
+end
+
+json.flashes flashes
 

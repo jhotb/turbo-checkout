@@ -1,0 +1,18 @@
+json.title book.title
+
+json.image image_tag(
+  book.cover.attached? ?
+    book.cover.variant(resize_and_pad: [500, 500]) :
+    "http://via.placeholder.com/500/500",
+)
+
+json.description book.description.body
+json.price number_to_currency(book.price)
+
+form = form_with(model: book.line_items.build) do |form|
+  inputs = "".html_safe
+  inputs << form.hidden_field(:book_id)
+  inputs << form.button(class: "button button--primary")
+end
+
+json.form form
